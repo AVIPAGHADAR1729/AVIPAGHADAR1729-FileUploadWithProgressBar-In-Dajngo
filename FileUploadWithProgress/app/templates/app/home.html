@@ -1,0 +1,48 @@
+{% extends 'app/root.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block script %}
+{% endblock %}
+{% block content %}
+<h1 id="hx">Home</h1>
+<div class="m-3">
+    <div id="alert-box"></div>
+    <div id="show_box"></div>
+    <hr>
+    <form action="" method="POST" id="myFormForFile">
+        {% csrf_token %}
+        {{form|crispy}}
+    </form>
+    <hr>
+    
+    <div id="bar" class="notShow">
+        <p>BAR</p>
+    </div>
+    <div id="ShowModalView">
+       
+    </div>
+    <div id="closeBox" class="notShow">
+        <button class="btn btn-danger" id="CancelBtn">Cancel</button>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">FileView</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body-confirm">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModalBtn">Close</button>
+              
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
